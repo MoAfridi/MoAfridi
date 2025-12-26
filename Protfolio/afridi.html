@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Software Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a0b2e 0%, #2d1b4e 100%);
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 11, 46, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(138, 43, 226, 0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #a78bfa;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            box-shadow: 0 10px 40px rgba(138, 43, 226, 0.5);
+            border: 4px solid rgba(167, 139, 250, 0.3);
+        }
+
+        .profile-photo img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #a78bfa, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: #a78bfa;
+            margin-bottom: 1rem;
+        }
+
+        .bio {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, #a78bfa, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .work-card {
+            background: rgba(45, 27, 78, 0.5);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(167, 139, 250, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.4);
+        }
+
+        .work-card h3 {
+            color: #a78bfa;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: rgba(45, 27, 78, 0.5);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(167, 139, 250, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.4);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            color: #a78bfa;
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #fff;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            background: rgba(45, 27, 78, 0.7);
+            border-radius: 50px;
+            border: 1px solid rgba(167, 139, 250, 0.3);
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: rgba(167, 139, 250, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(138, 43, 226, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(26, 11, 46, 0.8);
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            .projects-grid, .work-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="profile-photo"><img src="./me.jpeg" alt="pic"></div>
+            <h1>Your Name</h1>
+            <p class="tagline">I'm a Software Engineer</p>
+            <p class="bio">Currently, I'm a software engineer at a company. Passionate about building innovative solutions and creating exceptional digital experiences.</p>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <p style="font-size: 1.1rem; color: #cbd5e1; margin-bottom: 2rem;">
+                A self-taught UI/UX designer. Functioning in the industry for 3+ years now. I make meaningful and delightful digital products that create an equilibrium between user needs and business goals.
+            </p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/MoAfridi24" target="_blank" class="social-link">
+                    <span>📘</span> Facebook
+                </a>
+                <a href="https://instagram.com/moafridi" target="_blank" class="social-link">
+                    <span>📷</span> Instagram
+                </a>
+                <a href="https://linkedin.com/in/moafridi24" target="_blank" class="social-link">
+                    <span>💼</span> LinkedIn
+                </a>
+                <a href="https://twitter.com/moafridi24" target="_blank" class="social-link">
+                    <span>🐦</span> Twitter
+                </a>
+                <a href="https://github.com/Moafridi24" target="_blank" class="social-link">
+                    <span>💻</span> GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="work">
+        <h2>Work Experience</h2>
+        <div class="work-grid">
+            <div class="work-card">
+                <h3>🚀 CXR on this Mobile</h3>
+                <p><strong>Company Name</strong></p>
+                <p style="color: #a78bfa;">2020 - Present</p>
+                <p style="margin-top: 1rem; color: #cbd5e1;">Description of your role and achievements in this position.</p>
+            </div>
+            <div class="work-card">
+                <h3>💼 CXR on this Mobile</h3>
+                <p><strong>Company Name</strong></p>
+                <p style="color: #a78bfa;">2018 - 2020</p>
+                <p style="margin-top: 1rem; color: #cbd5e1;">Description of your role and achievements in this position.</p>
+            </div>
+            <div class="work-card">
+                <h3>🎨 CXR on this Mobile</h3>
+                <p><strong>Company Name</strong></p>
+                <p style="color: #a78bfa;">2016 - 2018</p>
+                <p style="margin-top: 1rem; color: #cbd5e1;">Description of your role and achievements in this position.</p>
+            </div>
+            <div class="work-card">
+                <h3>⚡ CXR on this Mobile</h3>
+                <p><strong>Company Name</strong></p>
+                <p style="color: #a78bfa;">2015 - 2016</p>
+                <p style="margin-top: 1rem; color: #cbd5e1;">Description of your role and achievements in this position.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Example Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">🖼️</div>
+                <div class="project-content">
+                    <h3>Project Title One</h3>
+                    <p style="color: #cbd5e1;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. A brief description of this amazing project and the technologies used.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">🖼️</div>
+                <div class="project-content">
+                    <h3>Project Title Two</h3>
+                    <p style="color: #cbd5e1;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. A brief description of this amazing project and the technologies used.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">🖼️</div>
+                <div class="project-content">
+                    <h3>Project Title Three</h3>
+                    <p style="color: #cbd5e1;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. A brief description of this amazing project and the technologies used.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+            <p style="font-size: 1.1rem; color: #cbd5e1; margin-bottom: 2rem;">
+                Currently looking for a freelance opportunity. Have an exciting project you need help with? Send me an email or contact me via instant message!
+            </p>
+            <div class="social-links">
+                <a href="mailto:afridihossain220@gmai.com" class="social-link">
+                    <span>📧</span> Email Me
+                </a>
+                <a href="https://linkedin.com/in/moafridi24" target="_blank" class="social-link">
+                    <span>💼</span> LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body>
+</html>
